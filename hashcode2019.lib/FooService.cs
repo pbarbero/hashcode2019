@@ -37,7 +37,7 @@ namespace hashcode2019.lib
 
                 i++;
 
-                continueProcess = slides.Count() > idsOfSlides.Count() && i < 1000;
+                continueProcess = slides.Count() > idsOfSlides.Count() && i < 100;
             }
 
             return idsOfSlides;

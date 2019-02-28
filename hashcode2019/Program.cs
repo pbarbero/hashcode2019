@@ -17,8 +17,8 @@ namespace hashcode2019
                 //@"../../../data/a_example.txt",
                 //@"../../../data/b_lovely_landscapes.txt",
                 //@"../../../data/c_memorable_moments.txt",
-                @"../../../data/d_pet_pictures.txt",
-                //@"../../../data/e_shiny_shelfies.txt"
+                //@"../../../data/d_pet_pictures.txt",
+                @"../../../data/e_shiny_selfies.txt"
             };
 
 
