@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using System.Text;
+using System.Linq;
 
 namespace hashcode2019
 {
@@ -27,17 +28,34 @@ namespace hashcode2019
             {
                 Console.Write("Press a key to continue...");
                 var lines = ReadFile(file);
-                
-                var line = FileParser.Parse(lines);
-                
-                var slices = new List<Slide>()
+                var slides = FileParser.Parse(lines);
+                var verticals = new List<Slide>();
+                var horizontals = new List<Slide>();
+                foreach (Slide slide in slides)
                 {
-                    
-                };
+                    if (slide.IsVertical)
+                    {
+                        verticals.Add(slide);
+                    }
+                    else
+                    {
+                        horizontals.Add(slide);
+                    }
+                }
 
-                service.DoStuff(slices);
+                service.DoStuff(horizontals);
 
-                WriteOutFile(line, file);
+                /* foreach (Slide slide in verticals){
+                    List<Slide> sublist = slide.GetRange(5, 5); 
+                    slide.Tags.Except(slice2.Tags);
+        
+                }
+                
+
+                Console.Write(line);
+                //service.DoStuff();
+
+                WriteOutFile(line, file);*/
             }
 
             var foo = Console.ReadKey();

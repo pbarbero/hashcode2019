@@ -7,7 +7,7 @@ namespace hashcode2019
 {
     public static class FileParser
     {
-        public static object Parse(IEnumerable<string> lines)
+        public static List<Slide> Parse(IEnumerable<string> lines)
         {
             var slides = new List<Slide>();
             var allLines = lines.Skip(1);
