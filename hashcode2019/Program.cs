@@ -14,22 +14,28 @@ namespace hashcode2019
             var FilesNames = new List<string>()
             {
                 @"../../../data/a_example.txt",
-                // @"../../../data/b_small.in",
-                // @"../../../data/c_medium.in",
-                // @"../../../data/d_big.in"
+                //@"../../../data/b_lovely_landscapes.in",
+                //@"../../../data/c_memorable_moments.in",
+                //@"../../../data/d_pet_pictures.in",
+                //@"../../../data/e_shiny_shelfies.in"
             };
+
 
             var service = new FooService();
 
             foreach (var file in FilesNames)
             {
-                //Do stuff
                 Console.Write("Press a key to continue...");
                 var lines = ReadFile(file);
-                var objectFoo = FileParser.Parse(lines);
-                service.DoStuff();
+                var line = FileParser.Parse(lines);
+                foreach (Slide slide in line)
+                {
 
-                WriteOutFile(objectFoo, file);
+                }
+                Console.Write(line);
+                //service.DoStuff();
+
+                WriteOutFile(line, file);
             }
 
             var foo = Console.ReadKey();

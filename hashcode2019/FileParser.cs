@@ -9,29 +9,29 @@ namespace hashcode2019
     {
         public static object Parse(IEnumerable<string> lines)
         {
-            var photos = new List<Photo>();
+            var slides = new List<Slide>();
             var allLines = lines.Skip(1);
             var id = 0;
 
             foreach(var line in allLines)
             {
                 var splitedLine = line.Split(" ");
-                var photo = new Photo()
+                var slide = new Slide()
                 {
-                    Horizontal = splitedLine[0][0] == 'H',
+                    IsVertical = splitedLine[0][0] == 'H',
                     Id = id
                 };
 
                 for(var i = 2; i < splitedLine.Length; i++)
                 {
-                    photo.Tags.Add(splitedLine[i]);
+                    slide.Tags.Add(splitedLine[i]);
                 }
 
-                photos.Add(photo);
+                slides.Add(slide);
                 id++;
             }
 
-            return photos;
+            return slides;
         }
 
         private static int GetInt(string foo)
