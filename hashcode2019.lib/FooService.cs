@@ -10,33 +10,52 @@ namespace hashcode2019.lib
     {
         public List<string> DoStuff(List<Slide> slides)
         {
+            var minimun = 0;
             var idsOfSlides = new List<string>();
+            var slideIdToProcess = slides.First().Id;
+            var continueProcess = true;
 
-            foreach (var slide in slides)
+            while (continueProcess)
             {
+                var slide = slides.FirstOrDefault(x => x.Id == slideIdToProcess);
                 var slidesToCompare = slides.Where(x => !idsOfSlides.Contains(x.Id)).ToList();
 
                 if (!idsOfSlides.Contains(slide.Id))
                 {
-                    var nextSlide = GetBestSlide(slide, slidesToCompare, slide.Tags.Count() / 2);
-                    idsOfSlides.Add(nextSlide.Id);
+                    var nextSlideId = GetBestSlide(slide, slidesToCompare, minimun, slide.Tags.Count() / 2);
+
+                    if (!string.IsNullOrEmpty(nextSlideId))
+                    {
+                        slideIdToProcess = nextSlideId;
+                        idsOfSlides.Add(nextSlideId);
+                    }
                 }
+
+                continueProcess = slides.Count() == idsOfSlides.Count();
             }
 
             return idsOfSlides;
         }
 
-        private Slide GetBestSlide(Slide slide, List<Slide> slides, int playa)
+        private string GetBestSlide(Slide slide, List<Slide> slides, int min, int exact)
         {
             foreach (var slideToCompare in slides)
             {
-                if (GetLenghtOfCommonTags(slide, slideToCompare) == playa)
+                if (slide.Id != slideToCompare.Id && GetLenghtOfCommonTags(slide, slideToCompare) == exact)
                 {
-                    return slideToCompare;
+                    return slideToCompare.Id;
                 }
             }
 
-            return null;
+            foreach (var slideToCompare in slides)
+            {
+                if (slide.Id != slideToCompare.Id && GetLenghtOfCommonTags(slide, slideToCompare) > min)
+                {
+                    return slideToCompare.Id;
+                }
+            }
+
+            return string.Empty;
         }
 
         private int GetLenghtOfCommonTags(Slide slice1, Slide slice2)

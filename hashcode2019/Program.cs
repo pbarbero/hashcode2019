@@ -42,7 +42,7 @@ namespace hashcode2019
                         horizontals.Add(slide);
                     }
                 }
-
+                horizontals.AddRange(verticals);
                 service.DoStuff(horizontals);
 
                 /* foreach (Slide slide in verticals){
