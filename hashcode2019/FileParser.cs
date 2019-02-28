@@ -23,8 +23,6 @@ namespace hashcode2019
                     Id = id.ToString()
                 };
 
-                
-
                 for(var i = 2; i < splitedLine.Length; i++)
                 {
                     slide.Tags.Add(splitedLine[i]);

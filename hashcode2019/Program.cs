@@ -29,7 +29,43 @@ namespace hashcode2019
                 Console.WriteLine("Press a key to continue...");
                 var lines = ReadFile(file);
                 var slides = FileParser.Parse(lines);
-                var verticals = new List<Slide>();
+                var gooderSlides = getHorizontals(slides);
+            }
+           // var foo = Console.ReadKey();
+            Console.Write("Bye!");
+        }
+
+        private static void WriteOutFile(object foo, string file)
+        {
+            //Console
+            Console.WriteLine($"Printing {foo.GetType().Name}");
+            
+
+            //File
+            using (StreamWriter writetext = new StreamWriter(@"../../../output/" + Path.GetFileName(file) + ".out"))
+            {
+                var stringBuilder = new StringBuilder(string.Empty);
+
+                //foreach (var slice in pizza.Slices)
+                //{
+                //    stringBuilder.Append($"{slice.GetMinCell().X} {slice.GetMinCell().Y} {slice.GetMaxCell().X} {slice.GetMaxCell().Y}");
+                //    stringBuilder.Append("\n");
+                //}
+
+                writetext.WriteLine(stringBuilder);
+            }
+        }
+
+        private static IEnumerable<string> ReadFile(string filePath)
+        {
+            var frequencies = new List<int>();
+            var path = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), filePath);
+
+            return File.ReadLines(path);
+        }
+        private static List<Slide> getHorizontals(List<Slide> slides)
+        {
+            var verticals = new List<Slide>();
                 var horizontals = new List<Slide>();
                 foreach (Slide slide in slides)
                 {
@@ -66,45 +102,10 @@ namespace hashcode2019
                     used.Add(chosen.Id);
                     horizontals.Add(slide);
                 }
-                
-
-                Console.Write(horizontals);
-                //service.DoStuff();
-
-                //WriteOutFile(line, file);
+                return horizontals;
             }
-
-           // var foo = Console.ReadKey();
-            Console.Write("Bye!");
-        }
-
-        private static void WriteOutFile(object foo, string file)
-        {
-            //Console
-            Console.WriteLine($"Printing {foo.GetType().Name}");
-            
-
-            //File
-            using (StreamWriter writetext = new StreamWriter(@"../../../output/" + Path.GetFileName(file) + ".out"))
-            {
-                var stringBuilder = new StringBuilder(string.Empty);
-
-                //foreach (var slice in pizza.Slices)
-                //{
-                //    stringBuilder.Append($"{slice.GetMinCell().X} {slice.GetMinCell().Y} {slice.GetMaxCell().X} {slice.GetMaxCell().Y}");
-                //    stringBuilder.Append("\n");
-                //}
-
-                writetext.WriteLine(stringBuilder);
-            }
-        }
-
-        private static IEnumerable<string> ReadFile(string filePath)
-        {
-            var frequencies = new List<int>();
-            var path = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), filePath);
-
-            return File.ReadLines(path);
-        }
+        
     }
 }
+
+
