@@ -11,27 +11,28 @@ namespace hashcode2019.lib
         public List<string> DoStuff(List<Slide> slides)
         {
             var minimun = 0;
-            var idsOfSlides = new List<string>();
             var slideIdToProcess = slides.First().Id;
+            var idsOfSlides = new List<string>(){slideIdToProcess};
             var continueProcess = true;
+            var i = 0;
 
             while (continueProcess)
             {
                 var slide = slides.FirstOrDefault(x => x.Id == slideIdToProcess);
-                var slidesToCompare = slides.Where(x => !idsOfSlides.Contains(x.Id)).ToList();
+                var slidesToCompare = slides.Where(x => !idsOfSlides.Contains(x.Id) && x.Id != slideIdToProcess).ToList();
+                
+                var nextSlideId = GetBestSlide(slide, slidesToCompare, minimun, slide.Tags.Count() / 2);
 
-                if (!idsOfSlides.Contains(slide.Id))
+                if (!string.IsNullOrEmpty(nextSlideId))
                 {
-                    var nextSlideId = GetBestSlide(slide, slidesToCompare, minimun, slide.Tags.Count() / 2);
-
-                    if (!string.IsNullOrEmpty(nextSlideId))
-                    {
-                        slideIdToProcess = nextSlideId;
-                        idsOfSlides.Add(nextSlideId);
-                    }
+                    slideIdToProcess = nextSlideId;
+                    idsOfSlides.Add(nextSlideId);
                 }
+                
 
-                continueProcess = slides.Count() == idsOfSlides.Count();
+                
+
+                continueProcess = slides.Count() > idsOfSlides.Count();
             }
 
             return idsOfSlides;

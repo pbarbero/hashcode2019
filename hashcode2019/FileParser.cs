@@ -20,7 +20,7 @@ namespace hashcode2019
                 {
 
                     IsVertical = splitedLine[0][0] == 'V',
-                    Id = id.ToString()
+                    Id = id.ToString().Trim()
                 };
 
                 for(var i = 2; i < splitedLine.Length; i++)

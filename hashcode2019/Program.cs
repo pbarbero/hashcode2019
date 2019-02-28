@@ -14,11 +14,11 @@ namespace hashcode2019
         {
             var FilesNames = new List<string>()
             {
-                @"../../../data/a_example.txt",
-                //@"../../../data/b_lovely_landscapes.in",
-                //@"../../../data/c_memorable_moments.in",
-                //@"../../../data/d_pet_pictures.in",
-                //@"../../../data/e_shiny_shelfies.in"
+                //@"../../../data/a_example.txt",
+                //@"../../../data/b_lovely_landscapes.txt",
+                //@"../../../data/c_memorable_moments.txt",
+                @"../../../data/d_pet_pictures.txt",
+                //@"../../../data/e_shiny_shelfies.txt"
             };
 
 
@@ -30,36 +30,28 @@ namespace hashcode2019
                 var lines = ReadFile(file);
                 var slides = FileParser.Parse(lines);
                 var gooderSlides = getHorizontals(slides);
-                foreach(Slide cosa in gooderSlides)
-                {
-                   Console.WriteLine(cosa.Id); 
-                }
-                var temp = service.DoStuff(gooderSlides);
-                foreach(string cosa in temp)
-                {
-                   Console.WriteLine(cosa); 
-                }
+                var idsGuays = service.DoStuff(gooderSlides);
+                WriteOutFile(idsGuays, file);
             }
            // var foo = Console.ReadKey();
             Console.Write("Bye!");
         }
 
-        private static void WriteOutFile(object foo, string file)
+        private static void WriteOutFile(List<string> idsGuays, string file)
         {
-            //Console
-            Console.WriteLine($"Printing {foo.GetType().Name}");
-            
+            //Console            
 
             //File
-            using (StreamWriter writetext = new StreamWriter(@"../../../output/" + Path.GetFileName(file) + ".out"))
+            using (StreamWriter writetext = new StreamWriter(@"/home/pilar/Projects/hashcode2019/hashcode2019/output/" + Path.GetFileName(file) + ".out"))
             {
-                var stringBuilder = new StringBuilder(string.Empty);
+                var stringBuilder = new StringBuilder(idsGuays.Count().ToString());
+                stringBuilder.Append("\n");
 
-                //foreach (var slice in pizza.Slices)
-                //{
-                //    stringBuilder.Append($"{slice.GetMinCell().X} {slice.GetMinCell().Y} {slice.GetMaxCell().X} {slice.GetMaxCell().Y}");
-                //    stringBuilder.Append("\n");
-                //}
+                foreach (var id in idsGuays)
+                {
+                   stringBuilder.Append($"{id}");
+                   stringBuilder.Append("\n");
+                }
 
                 writetext.WriteLine(stringBuilder);
             }
@@ -115,6 +107,7 @@ namespace hashcode2019
                     used.Add(chosen.Id);
                     horizontals.Add(slide);
                 }
+
                 return horizontals;
             }
         
