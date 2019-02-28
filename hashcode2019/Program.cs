@@ -14,10 +14,10 @@ namespace hashcode2019
         {
             var FilesNames = new List<string>()
             {
-                //@"../../../data/a_example.txt",
-                //@"../../../data/b_lovely_landscapes.txt",
+                @"../../../data/a_example.txt",
+                @"../../../data/b_lovely_landscapes.txt",
                 //@"../../../data/c_memorable_moments.txt",
-                @"../../../data/d_pet_pictures.txt",
+                //@"../../../data/d_pet_pictures.txt",
                 //@"../../../data/e_shiny_shelfies.txt"
             };
 
@@ -81,6 +81,7 @@ namespace hashcode2019
                 }
 
                 var i = 0;
+                var used = new List<string>(); //Used, like my heart.
                 foreach (Slide slide in verticals){
                     i++;
                     List<Slide> sublist = verticals.GetRange(i, verticals.Count() - i); 
@@ -90,7 +91,7 @@ namespace hashcode2019
                     }
                     var maxValue = 0;
                     var chosen = new Slide(); //The chosen one, that will bring balance to the Force
-                    var used = new List<string>(); //Used, like my heart.
+                    
                     foreach(Slide otherSlide in sublist){
                         if (!used.Contains(otherSlide.Id))
                         {

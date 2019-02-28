@@ -30,7 +30,10 @@ namespace hashcode2019.lib
                 }
                 
 
-                
+                // if(i%10 == 0)
+                // {
+                //     Console.WriteLine($"Item {i}");
+                // }
 
                 continueProcess = slides.Count() > idsOfSlides.Count();
             }
