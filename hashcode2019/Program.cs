@@ -13,10 +13,10 @@ namespace hashcode2019
         {
             var FilesNames = new List<string>()
             {
-                @"../../../data/a_example.in",
-                @"../../../data/b_small.in",
-                @"../../../data/c_medium.in",
-                @"../../../data/d_big.in"
+                @"../../../data/a_example.txt",
+                // @"../../../data/b_small.in",
+                // @"../../../data/c_medium.in",
+                // @"../../../data/d_big.in"
             };
 
             var service = new FooService();
