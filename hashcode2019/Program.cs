@@ -14,10 +14,10 @@ namespace hashcode2019
         {
             var FilesNames = new List<string>()
             {
-                @"../../../data/a_example.txt",
-                @"../../../data/b_lovely_landscapes.txt",
+                //@"../../../data/a_example.txt",
+                //@"../../../data/b_lovely_landscapes.txt",
                 //@"../../../data/c_memorable_moments.txt",
-                //@"../../../data/d_pet_pictures.txt",
+                @"../../../data/d_pet_pictures.txt",
                 //@"../../../data/e_shiny_shelfies.txt"
             };
 
@@ -26,7 +26,7 @@ namespace hashcode2019
 
             foreach (var file in FilesNames)
             {
-                Console.WriteLine("Press a key to continue...");
+                Console.WriteLine($"File {file}");
                 var lines = ReadFile(file);
                 var slides = FileParser.Parse(lines);
                 var gooderSlides = getHorizontals(slides);
@@ -84,6 +84,10 @@ namespace hashcode2019
                 var used = new List<string>(); //Used, like my heart.
                 foreach (Slide slide in verticals){
                     i++;
+                    if (!used.Contains(slide.Id))
+                    {
+                        continue;
+                    }
                     List<Slide> sublist = verticals.GetRange(i, verticals.Count() - i); 
                     if (!sublist.Any())
                     {
