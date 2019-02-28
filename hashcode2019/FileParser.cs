@@ -18,9 +18,12 @@ namespace hashcode2019
                 var splitedLine = line.Split(" ");
                 var slide = new Slide()
                 {
-                    IsVertical = splitedLine[0][0] == 'H',
-                    Id = id
+
+                    IsVertical = splitedLine[0][0] == 'V',
+                    Id = id.ToString()
                 };
+
+                
 
                 for(var i = 2; i < splitedLine.Length; i++)
                 {

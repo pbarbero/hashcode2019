@@ -26,7 +26,7 @@ namespace hashcode2019
 
             foreach (var file in FilesNames)
             {
-                Console.Write("Press a key to continue...");
+                Console.WriteLine("Press a key to continue...");
                 var lines = ReadFile(file);
                 var slides = FileParser.Parse(lines);
                 var verticals = new List<Slide>();
@@ -43,20 +43,38 @@ namespace hashcode2019
                     }
                 }
 
-                /* foreach (Slide slide in verticals){
-                    List<Slide> sublist = slide.GetRange(5, 5); 
-                    slide.Tags.Except(slice2.Tags);
-        
+                var i = 0;
+                foreach (Slide slide in verticals){
+                    i++;
+                    List<Slide> sublist = verticals.GetRange(i, verticals.Count() - i); 
+                    var maxValue = 0;
+                    var chosen = new Slide(); //The chosen one, that will bring balance to the Force
+                    var used = new List<string>(); //Used, like my heart.
+                    foreach(Slide otherSlide in sublist){
+                        if (used.Contains(otherSlide.Id))
+                        {
+                            var tempValue = Math.Abs(slide.Tags.Except(otherSlide.Tags).Count() + otherSlide.Tags.Except(slide.Tags).Count());
+                            if (tempValue > maxValue)
+                            {
+                                maxValue = tempValue;
+                                chosen = otherSlide;
+                            }
+                        }
+                    }
+                    slide.Id = slide.Id + " " + chosen.Id;
+                    slide.Tags.AddRange(chosen.Tags);
+                    used.Add(chosen.Id);
+                    horizontals.Add(slide);
                 }
                 
 
-                Console.Write(line);
+                Console.Write(horizontals);
                 //service.DoStuff();
 
-                WriteOutFile(line, file);*/
+                //WriteOutFile(line, file);
             }
 
-            var foo = Console.ReadKey();
+           // var foo = Console.ReadKey();
             Console.Write("Bye!");
         }
 
