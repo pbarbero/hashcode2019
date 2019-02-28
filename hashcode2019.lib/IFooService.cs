@@ -6,6 +6,6 @@ namespace hashcode2019.lib
 {
     public interface IFooService
     {
-        void DoStuff();
+        void DoStuff(List<Slide> slides);
     }
 }

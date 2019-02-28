@@ -27,13 +27,15 @@ namespace hashcode2019
             {
                 Console.Write("Press a key to continue...");
                 var lines = ReadFile(file);
+                
                 var line = FileParser.Parse(lines);
-                foreach (Slide slide in line)
+                
+                var slices = new List<Slide>()
                 {
+                    
+                };
 
-                }
-                Console.Write(line);
-                //service.DoStuff();
+                service.DoStuff(slices);
 
                 WriteOutFile(line, file);
             }

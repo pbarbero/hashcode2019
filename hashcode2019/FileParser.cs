@@ -19,13 +19,13 @@ namespace hashcode2019
                 var slide = new Slide()
                 {
                     IsVertical = splitedLine[0][0] == 'H',
-                    Id = id
+                    Id = id.ToString()
                 };
 
                 for(var i = 2; i < splitedLine.Length; i++)
                 {
                     slide.Tags.Add(splitedLine[i]);
-                }
+                }                
 
                 slides.Add(slide);
                 id++;
