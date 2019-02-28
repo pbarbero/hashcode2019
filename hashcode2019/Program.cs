@@ -30,6 +30,15 @@ namespace hashcode2019
                 var lines = ReadFile(file);
                 var slides = FileParser.Parse(lines);
                 var gooderSlides = getHorizontals(slides);
+                foreach(Slide cosa in gooderSlides)
+                {
+                   Console.WriteLine(cosa.Id); 
+                }
+                var temp = service.DoStuff(gooderSlides);
+                foreach(string cosa in temp)
+                {
+                   Console.WriteLine(cosa); 
+                }
             }
            // var foo = Console.ReadKey();
             Console.Write("Bye!");
@@ -83,13 +92,17 @@ namespace hashcode2019
                 foreach (Slide slide in verticals){
                     i++;
                     List<Slide> sublist = verticals.GetRange(i, verticals.Count() - i); 
+                    if (!sublist.Any())
+                    {
+                        return horizontals; 
+                    }
                     var maxValue = 0;
                     var chosen = new Slide(); //The chosen one, that will bring balance to the Force
                     var used = new List<string>(); //Used, like my heart.
                     foreach(Slide otherSlide in sublist){
-                        if (used.Contains(otherSlide.Id))
+                        if (!used.Contains(otherSlide.Id))
                         {
-                            var tempValue = Math.Abs(slide.Tags.Except(otherSlide.Tags).Count() + otherSlide.Tags.Except(slide.Tags).Count());
+                            var tempValue = slide.Tags.Except(otherSlide.Tags).Count() + otherSlide.Tags.Except(slide.Tags).Count();
                             if (tempValue > maxValue)
                             {
                                 maxValue = tempValue;
