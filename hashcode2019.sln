@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2041
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "hashcode2019", "hashcode2019\hashcode2019.csproj", "{EC96EDEA-6199-4588-97F9-E2C82B79FFDD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "hashcode2019.lib", "hashcode2019.lib\hashcode2019.lib.csproj", "{D60E16D2-31B4-4083-AE62-029351E4376A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EC96EDEA-6199-4588-97F9-E2C82B79FFDD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC96EDEA-6199-4588-97F9-E2C82B79FFDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC96EDEA-6199-4588-97F9-E2C82B79FFDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC96EDEA-6199-4588-97F9-E2C82B79FFDD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D60E16D2-31B4-4083-AE62-029351E4376A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D60E16D2-31B4-4083-AE62-029351E4376A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D60E16D2-31B4-4083-AE62-029351E4376A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D60E16D2-31B4-4083-AE62-029351E4376A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {935E6D81-8AF9-4D3D-9994-07F5F8FC57A1}
+	EndGlobalSection
+EndGlobal
