@@ -1,9 +1,0 @@
-C:\Users\g3\source\repos\hashcode2019\hashcode2019.lib\bin\Debug\netcoreapp2.1\hashcode2019.lib.deps.json
-C:\Users\g3\source\repos\hashcode2019\hashcode2019.lib\bin\Debug\netcoreapp2.1\hashcode2019.lib.dll
-C:\Users\g3\source\repos\hashcode2019\hashcode2019.lib\bin\Debug\netcoreapp2.1\hashcode2019.lib.pdb
-C:\Users\g3\source\repos\hashcode2019\hashcode2019.lib\obj\Debug\netcoreapp2.1\hashcode2019.lib.csprojAssemblyReference.cache
-C:\Users\g3\source\repos\hashcode2019\hashcode2019.lib\obj\Debug\netcoreapp2.1\hashcode2019.lib.csproj.CoreCompileInputs.cache
-C:\Users\g3\source\repos\hashcode2019\hashcode2019.lib\obj\Debug\netcoreapp2.1\hashcode2019.lib.AssemblyInfoInputs.cache
-C:\Users\g3\source\repos\hashcode2019\hashcode2019.lib\obj\Debug\netcoreapp2.1\hashcode2019.lib.AssemblyInfo.cs
-C:\Users\g3\source\repos\hashcode2019\hashcode2019.lib\obj\Debug\netcoreapp2.1\hashcode2019.lib.dll
-C:\Users\g3\source\repos\hashcode2019\hashcode2019.lib\obj\Debug\netcoreapp2.1\hashcode2019.lib.pdb
